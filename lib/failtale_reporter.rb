@@ -11,7 +11,6 @@ module FailtaleReporter
   require 'failtale_reporter/information_collector'
   require 'failtale_reporter/adapters'
 
-
   include HTTParty
   extend FailtaleReporter::Adapters
   extend FailtaleReporter::Configuration
@@ -57,4 +56,5 @@ module FailtaleReporter
     Client.new.report(error, *ctxs, &block)
   end
 
+  require 'failtale_reporter/railtie' if defined?(Rails)
 end
